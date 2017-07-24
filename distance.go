@@ -108,3 +108,28 @@ func CanberraDistance(firstVector, secondVector []float64) (float64, error) {
 	}
 	return distance, nil
 }
+
+func SphericalDistance(firstVector, secondVector []float64) (float64, error) {
+	// compute dot product
+	var cos float64
+	for i, val := range firstVector {
+		cos += val * secondVector[i]
+	}
+
+	if cos == 0.0 {
+		return 0.0, nil
+	}
+
+	// divide by lengths
+	cos /= (norm(firstVector) * norm(secondVector))
+
+	return 1 - cos, nil
+}
+
+func norm(m []float64) float64 {
+	var sum float64
+	for _, v := range m {
+		sum += (v * v)
+	}
+	return math.Sqrt(sum)
+}

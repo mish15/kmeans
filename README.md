@@ -25,4 +25,5 @@ It supports various distance functions:
 - Chebyshev Distance
 - Hamming Distance
 - Bray Curtis Distance
-- CanberraDistance
+- Canberra Distance
+- Spherical Distance
